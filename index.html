@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Hermod helps businesses decide when uncertainty is worth checking and makes honest reporting, proper approval, and correct follow-through the easiest choices." />
-  <title>Hermod Labs - Spend Wisely and Make the Right Action Easy</title>
+    content="Hermod is a modular ladder of focused decision tools: qualify the opportunity, choose the action, buy the right evidence, set practical rules, and prove what happened." />
+  <title>Hermod Labs - A Ladder of Focused Decision Tools</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -148,6 +148,15 @@
 
     .brand-card:hover::before { opacity: 1; }
 
+    .ladder-line {
+      position: absolute;
+      left: 1.45rem;
+      top: 3.2rem;
+      bottom: 3.2rem;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(168,117,242,.65) 12%, rgba(215,185,255,.42) 88%, transparent);
+    }
+
     @media (max-width: 1023px) {
       .hero-brand-symbol { right: -24rem; opacity: .055; }
       .brand-wordmark { width: 11rem; }
@@ -169,18 +178,18 @@
       </a>
 
       <div class="hidden items-center gap-7 text-sm text-slate-300 lg:flex">
-        <a href="#why" class="transition hover:text-white">Why it matters</a>
-        <a href="#how" class="transition hover:text-white">How it works</a>
+        <a href="#why" class="transition hover:text-white">Why focused tools</a>
+        <a href="#ladder" class="transition hover:text-white">Product ladder</a>
         <a href="#example" class="transition hover:text-white">$35 example</a>
+        <a href="#jobs" class="transition hover:text-white">Jobs and users</a>
         <a href="#rules" class="transition hover:text-white">People and rules</a>
-        <a href="#fit" class="transition hover:text-white">Good fit</a>
-        <a href="#technical" class="transition hover:text-white">Under the hood</a>
+        <a href="#architecture" class="transition hover:text-white">Architecture</a>
       </div>
 
       <a
         href="#contact"
         class="rounded-full border border-signal/60 bg-signal/10 px-4 py-2 text-sm font-semibold text-signal2 transition hover:border-signal2 hover:bg-signal/20">
-        Show us a decision
+        Start with one job
       </a>
     </nav>
   </header>
@@ -188,46 +197,46 @@
   <main id="top">
     <section class="relative overflow-hidden">
       <img src="assets/hermod-symbol-dark.png" alt="" class="hero-brand-symbol" aria-hidden="true" />
-      <div class="mx-auto grid min-h-[82vh] max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-32">
+      <div class="mx-auto grid min-h-[84vh] max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.02fr_.98fr] lg:px-8 lg:py-32">
         <div>
           <p class="eyebrow mb-6 font-mono text-xs uppercase tracking-[0.22em] text-signal">
-            Spend wisely. Make the right behavior easy.
+            Start small. Add only what the decision needs.
           </p>
 
           <h1 class="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-            Spend a little to avoid a big mistake. <span class="brand-gradient">Make the right action the easy action.</span>
+            One decision problem. <span class="brand-gradient">A ladder of focused tools.</span>
           </h1>
 
           <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            When the truth is unclear, people must decide whether to check, act, wait, or stop. Hermod shows which check is worth the money.
+            Hermod helps a team decide whether a problem is worth pursuing, what choice to make, which fact is worth checking, who may act, and whether the approved action was carried out correctly.
           </p>
 
           <p class="mt-4 max-w-2xl text-base leading-7 text-slate-400">
-            Hermod also sets simple rules for who reports, who approves, what proof is needed, and how the result is checked. Hiding, guessing, and taking shortcuts become harder than doing the right thing.
+            You do not need one giant process. Each layer solves one clear job. A customer can start with the smallest useful tool and add the next layer only when it earns its place.
           </p>
 
           <div class="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#example"
+              href="#ladder"
               class="inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3.5 text-sm font-bold text-ink transition hover:bg-signal2">
-              See the $35 example
+              See the product ladder
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <path d="M4 10h12M11 5l5 5-5 5" />
               </svg>
             </a>
 
             <a
-              href="#how"
+              href="#example"
               class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-6 py-3.5 text-sm font-semibold text-white transition hover:border-signal/40 hover:bg-signal/[0.06]">
-              How Hermod saves money
+              See the $35 example
             </a>
           </div>
 
           <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-6 text-xs uppercase tracking-[0.16em] text-slate-500">
-            <span>Spend only when useful</span>
-            <span>Honest reporting</span>
-            <span>Clear approval</span>
-            <span>Light verification</span>
+            <span>Focused jobs</span>
+            <span>Modular products</span>
+            <span>Shared case history</span>
+            <span>No forced process</span>
           </div>
         </div>
 
@@ -235,62 +244,57 @@
           <div class="absolute -inset-8 -z-10 rounded-full bg-signal/10 blur-3xl"></div>
           <div class="brand-panel overflow-hidden rounded-3xl border border-signal/25 bg-panel/[0.92] shadow-2xl shadow-black/40">
             <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
-              <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">A money decision and a people plan</span>
-              <span class="rounded-full border border-good/25 bg-good/10 px-3 py-1 font-mono text-[10px] text-good">CHECK ONCE</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">Hermod product ladder</span>
+              <span class="rounded-full border border-good/25 bg-good/10 px-3 py-1 font-mono text-[10px] text-good">ADD AS NEEDED</span>
             </div>
 
-            <div class="space-y-5 p-6 sm:p-8">
-              <div>
-                <p class="font-mono text-xs text-signal">TODAY'S DECISION</p>
-                <h2 class="mt-2 text-2xl font-semibold text-white">Should we spend $35 to inspect $9,600 of inventory?</h2>
-              </div>
+            <div class="relative space-y-3 p-6 sm:p-8">
+              <div class="ladder-line" aria-hidden="true"></div>
 
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Money still at risk</p>
-                  <p class="mt-2 text-2xl font-semibold text-white">About $960</p>
-                  <p class="mt-1 text-xs leading-5 text-slate-500">The amount we may still be able to protect.</p>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Cost to check</p>
-                  <p class="mt-2 text-2xl font-semibold text-white">$35</p>
-                  <p class="mt-1 text-xs leading-5 text-slate-500">Labor, handling, and interruption included.</p>
+              <div class="relative flex gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
+                <span class="z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-signal/40 bg-panel text-xs font-bold text-signal2">1</span>
+                <div>
+                  <p class="font-semibold text-white">Project Qualification</p>
+                  <p class="mt-1 text-sm text-slate-400">Should we pursue this, investigate it, hold it, or prune it?</p>
                 </div>
               </div>
 
-              <div class="rounded-2xl border border-signal/30 bg-signal/[0.07] p-5">
-                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-signal2">Plain-English answer</p>
-                <p class="mt-3 text-base leading-7 text-white">
-                  Spend the $35. Under the middle estimate, the check is likely to create about $105 of value. That is roughly $3 of expected value for every $1 spent.
-                </p>
-              </div>
-
-              <div class="grid gap-2 sm:grid-cols-3">
-                <div class="rounded-xl border border-white/10 bg-white/[0.025] p-3">
-                  <p class="font-mono text-[9px] uppercase tracking-widest text-slate-500">Report</p>
-                  <p class="mt-2 text-xs leading-5 text-slate-300">The employee records what was seen, not a guessed cause.</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-white/[0.025] p-3">
-                  <p class="font-mono text-[9px] uppercase tracking-widest text-slate-500">Approve</p>
-                  <p class="mt-2 text-xs leading-5 text-slate-300">The owner approves the $35 because it clears the rule.</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-white/[0.025] p-3">
-                  <p class="font-mono text-[9px] uppercase tracking-widest text-slate-500">Verify</p>
-                  <p class="mt-2 text-xs leading-5 text-slate-300">The required readings and photo show the check was done.</p>
+              <div class="relative flex gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
+                <span class="z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-signal/40 bg-panel text-xs font-bold text-signal2">2</span>
+                <div>
+                  <p class="font-semibold text-white">Decision Model</p>
+                  <p class="mt-1 text-sm text-slate-400">Given what we know now, what choice makes the most sense?</p>
                 </div>
               </div>
 
-              <div class="rounded-2xl border border-white/10 bg-black/30 p-5">
-                <div class="flex items-center justify-between gap-4">
-                  <div>
-                    <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">After the first check</p>
-                    <p class="mt-2 text-sm leading-6 text-slate-300">A second check costs $35 but is now worth only about $7 to $31.</p>
-                  </div>
-                  <span class="shrink-0 rounded-full border border-warn/30 bg-warn/10 px-3 py-1 font-mono text-[10px] text-warn">STOP</span>
+              <div class="relative flex gap-4 rounded-2xl border border-signal/30 bg-signal/[0.055] p-4">
+                <span class="z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-signal bg-panel text-xs font-bold text-signal2">3</span>
+                <div>
+                  <p class="font-semibold text-white">Evidence Selection</p>
+                  <p class="mt-1 text-sm text-slate-300">What is the cheapest useful check, and when should we stop checking?</p>
                 </div>
               </div>
 
-              <p class="text-xs leading-5 text-slate-500">Illustrative numbers. A real pilot uses the customer's own costs, values, and rules.</p>
+              <div class="relative flex gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
+                <span class="z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-signal/40 bg-panel text-xs font-bold text-signal2">4</span>
+                <div>
+                  <p class="font-semibold text-white">Incentive and Authorization Policy</p>
+                  <p class="mt-1 text-sm text-slate-400">What simple rules make honest reporting and proper approval the easy choices?</p>
+                </div>
+              </div>
+
+              <div class="relative flex gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
+                <span class="z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-signal/40 bg-panel text-xs font-bold text-signal2">5</span>
+                <div>
+                  <p class="font-semibold text-white">Execution and Compliance Record</p>
+                  <p class="mt-1 text-sm text-slate-400">What was approved, what actually happened, and did it work?</p>
+                </div>
+              </div>
+
+              <div class="mt-5 flex items-center justify-between rounded-xl border border-signal/20 bg-black/30 px-4 py-3">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Shared foundation</span>
+                <span class="text-right text-xs text-signal2">One case · one history · many focused tools</span>
+              </div>
             </div>
           </div>
         </div>
@@ -301,98 +305,121 @@
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
           <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Why this matters</p>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Why focused tools</p>
             <p class="mt-5 max-w-sm text-sm leading-6 text-slate-500">
-              Unclear situations quietly consume money, time, attention, and trust.
+              A useful product should remove work, not turn every decision into a seminar.
             </p>
           </div>
 
           <div>
             <h2 class="max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.025em] text-white sm:text-5xl">
-              Businesses lose money when the facts are unclear and the rules push people the wrong way.
+              Different people have different jobs. They should not all be forced through the same analysis.
             </h2>
 
-            <div class="mt-10 grid gap-4 md:grid-cols-2">
+            <p class="mt-7 max-w-4xl text-lg leading-8 text-slate-300">
+              A leader may only need to know whether an idea deserves more money. An operator may only need the next useful step. A manager may need to approve a $35 check. An auditor may only need to see what was approved and what happened.
+            </p>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-2">
               <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-                <p class="font-mono text-xs text-signal">01</p>
-                <h3 class="mt-4 text-lg font-semibold text-white">They act too soon.</h3>
-                <p class="mt-3 text-sm leading-6 text-slate-400">They move, replace, hold, or rework something that was probably fine.</p>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-signal">The bad approach</p>
+                <h3 class="mt-4 text-xl font-semibold text-white">Make every user understand the whole system.</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">The result is extra meetings, extra fields, invented numbers, and people working around the process.</p>
               </div>
-              <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-                <p class="font-mono text-xs text-signal">02</p>
-                <h3 class="mt-4 text-lg font-semibold text-white">They wait too long.</h3>
-                <p class="mt-3 text-sm leading-6 text-slate-400">A small problem keeps growing because no one knows whether it is serious.</p>
-              </div>
-              <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-                <p class="font-mono text-xs text-signal">03</p>
-                <h3 class="mt-4 text-lg font-semibold text-white">They keep checking.</h3>
-                <p class="mt-3 text-sm leading-6 text-slate-400">People repeat tests and meetings after the next answer is no longer worth the effort.</p>
-              </div>
-              <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-                <p class="font-mono text-xs text-signal">04</p>
-                <h3 class="mt-4 text-lg font-semibold text-white">The rules reward the wrong behavior.</h3>
-                <p class="mt-3 text-sm leading-6 text-slate-400">Bad news gets hidden, boxes get checked without proof, or managers recheck everything because they do not trust the process.</p>
+
+              <div class="brand-card rounded-2xl border border-signal/25 bg-signal/[0.045] p-6">
+                <p class="font-mono text-[10px] uppercase tracking-widest text-signal2">The Hermod approach</p>
+                <h3 class="mt-4 text-xl font-semibold text-white">Give each person the smallest tool that completes their job.</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-300">Deeper analysis appears only when the cost, risk, people, or compliance problem actually requires it.</p>
               </div>
             </div>
 
-            <div class="mt-10 rounded-2xl border border-signal/20 bg-signal/[0.045] px-6 py-5 text-lg leading-8 text-slate-200">
-              Hermod answers two plain questions: Is another check worth the money? Are the rules making truthful reporting and correct follow-through the easiest choices?
+            <div class="mt-8 rounded-2xl border border-signal/20 bg-signal/[0.045] px-6 py-5 text-lg text-slate-200">
+              Hermod grows with the decision. The process does not grow faster than the value.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="how" class="scroll-mt-24">
+    <section id="ladder" class="scroll-mt-24">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div class="max-w-4xl">
-          <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">The simple idea</p>
-          <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-            A good decision needs good math and good rules.
-          </h2>
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            The math asks whether the next check is likely to save more than it costs. The rules ask what people will actually do when they are busy, worried, rewarded for speed, or afraid to bring bad news.
+        <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div class="max-w-3xl">
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">What we can sell</p>
+            <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
+              A product ladder customers can enter at the rung they need.
+            </h2>
+          </div>
+          <p class="max-w-md text-base leading-7 text-slate-400">
+            Each rung solves a complete job. Each higher rung adds control, savings, or proof. A customer does not have to buy the whole ladder on day one.
           </p>
         </div>
 
-        <div class="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-3xl border border-white/10 bg-panel/70 p-7">
-            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-signal">Question 1</p>
-            <h3 class="mt-4 text-2xl font-semibold text-white">What could a wrong choice cost?</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-400">Use a reasonable low, middle, and high estimate. Do not use the scariest number just to force an answer.</p>
+        <div class="mt-14 space-y-4">
+          <div class="grid gap-5 rounded-3xl border border-white/10 bg-panel/[0.68] p-6 md:grid-cols-[auto_1.05fr_1fr_.8fr] md:items-center lg:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-signal/30 bg-signal/[0.07] font-mono text-sm font-bold text-signal2">01</span>
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Entry product</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Project Qualification</h3>
+            </div>
+            <p class="text-sm leading-6 text-slate-300">Helps a team decide whether an opportunity is real, feasible, and worth more time or money.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Pursue · Investigate · Hold · Prune</p>
           </div>
 
-          <div class="rounded-3xl border border-white/10 bg-panel/70 p-7">
-            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-signal">Question 2</p>
-            <h3 class="mt-4 text-2xl font-semibold text-white">What is the cheapest useful check?</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-400">A check is useful only when its answer could change what the business does next.</p>
+          <div class="grid gap-5 rounded-3xl border border-white/10 bg-panel/[0.68] p-6 md:grid-cols-[auto_1.05fr_1fr_.8fr] md:items-center lg:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-signal/30 bg-signal/[0.07] font-mono text-sm font-bold text-signal2">02</span>
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Live decision product</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Decision Model</h3>
+            </div>
+            <p class="text-sm leading-6 text-slate-300">Helps the decision owner compare the choices that are actually available before time or options run out.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Act · Wait · Hold · Accept risk · Escalate</p>
           </div>
 
-          <div class="rounded-3xl border border-signal/30 bg-gradient-to-br from-signal/[0.10] to-panel p-7 shadow-glow">
-            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-signal2">Question 3</p>
-            <h3 class="mt-4 text-2xl font-semibold text-white">Is it worth paying now?</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-300">If the likely benefit is clearly larger than the full cost, check. If not, wait, watch, or stop.</p>
+          <div class="grid gap-5 rounded-3xl border border-signal/30 bg-gradient-to-r from-signal/[0.075] to-panel p-6 md:grid-cols-[auto_1.05fr_1fr_.8fr] md:items-center lg:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-signal bg-black/25 font-mono text-sm font-bold text-signal2">03</span>
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-signal2">Economic optimization product</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Evidence Selection</h3>
+            </div>
+            <p class="text-sm leading-6 text-slate-200">Finds the least expensive fact that can change the choice, then stops when another check is no longer worth its cost.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal2">Check · Defer · Stop</p>
           </div>
 
-          <div class="rounded-3xl border border-signal/30 bg-gradient-to-br from-signal/[0.10] to-panel p-7 shadow-glow">
-            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-signal2">Question 4</p>
-            <h3 class="mt-4 text-2xl font-semibold text-white">What will people do under these rules?</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-300">Make honest reporting, proper approval, and correct execution easier than hiding, guessing, or using a shortcut.</p>
+          <div class="grid gap-5 rounded-3xl border border-white/10 bg-panel/[0.68] p-6 md:grid-cols-[auto_1.05fr_1fr_.8fr] md:items-center lg:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-signal/30 bg-signal/[0.07] font-mono text-sm font-bold text-signal2">04</span>
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Governance product</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Incentive and Authorization Policy</h3>
+            </div>
+            <p class="text-sm leading-6 text-slate-300">Makes it easier to report bad news, request an exception, obtain approval, and do the right work than to hide or shortcut it.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Report · Approve · Verify · Except</p>
+          </div>
+
+          <div class="grid gap-5 rounded-3xl border border-white/10 bg-panel/[0.68] p-6 md:grid-cols-[auto_1.05fr_1fr_.8fr] md:items-center lg:p-7">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-signal/30 bg-signal/[0.07] font-mono text-sm font-bold text-signal2">05</span>
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Assurance product</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Execution and Compliance Record</h3>
+            </div>
+            <p class="text-sm leading-6 text-slate-300">Preserves what was allowed, what was done, what changed, and whether the action matched the rule and produced the expected result.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Authorize · Execute · Prove · Learn</p>
           </div>
         </div>
 
-        <div class="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-panel/[0.65]">
-          <div class="grid md:grid-cols-2">
-            <div class="p-7 sm:p-9 md:border-r md:border-white/10">
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-signal">The money rule</p>
-              <p class="mt-3 text-2xl font-semibold text-white">Spend when the likely benefit clears the customer's threshold. Stop when it does not.</p>
-              <p class="mt-4 text-sm leading-6 text-slate-400">Count labor, handling, delay, and manager attention - not just the price of the test.</p>
-            </div>
-            <div class="border-t border-white/10 p-7 sm:p-9 md:border-t-0">
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-signal">The people rule</p>
-              <p class="mt-3 text-2xl font-semibold text-white">Ask for facts, make exceptions easy to report, and require only the proof the risk justifies.</p>
-              <p class="mt-4 text-sm leading-6 text-slate-400">Do not make every employee solve the whole problem. Give each person one clear job.</p>
-            </div>
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Start narrow</p>
+            <p class="mt-3 text-sm leading-6 text-slate-300">Sell one clear job to one group with one measurable result.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Expand naturally</p>
+            <p class="mt-3 text-sm leading-6 text-slate-300">Add the next module when the customer reaches the next real problem.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Keep continuity</p>
+            <p class="mt-3 text-sm leading-6 text-slate-300">The same case and history follow the customer up the ladder.</p>
           </div>
         </div>
       </div>
@@ -402,163 +429,103 @@
 
     <section id="example" class="scroll-mt-24 border-y border-white/5 bg-white/[0.018]">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div class="grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
+        <div class="grid gap-14 lg:grid-cols-[.82fr_1.18fr] lg:items-start">
           <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">A simple example</p>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">A concrete $35 example</p>
             <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              Pay $35 to protect a much bigger decision.
+              The ladder follows one decision from “is this worth caring about?” to “stop checking.”
             </h2>
-            <p class="mt-6 text-lg leading-8 text-slate-300">
-              A store has $9,600 of premium inventory in one location. Something looks off. The owner is deciding whether to leave it alone, move it, or inspect it.
+            <p class="mt-6 text-base leading-7 text-slate-400">
+              A store has $9,600 of premium inventory in one placement. The owner is not sure whether that placement may cause damage over the next 30 to 60 days.
             </p>
             <p class="mt-4 text-base leading-7 text-slate-400">
-              Moving everything without evidence may waste labor and disturb good inventory. Doing nothing may allow a real problem to continue. A matched inspection costs $35 and may settle the question.
-            </p>
-          </div>
-
-          <div class="overflow-hidden rounded-3xl border border-white/10 bg-panel/80">
-            <div class="border-b border-white/10 px-6 py-5 sm:px-8">
-              <p class="font-mono text-xs uppercase tracking-[0.2em] text-signal">The owner's view</p>
-            </div>
-
-            <div class="space-y-6 p-6 sm:p-8">
-              <div class="grid gap-3 sm:grid-cols-3">
-                <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="text-xs text-slate-500">Inventory</p>
-                  <p class="mt-2 text-xl font-semibold text-white">$9,600</p>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="text-xs text-slate-500">Possible avoidable loss</p>
-                  <p class="mt-2 text-xl font-semibold text-white">About $960</p>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="text-xs text-slate-500">Inspection</p>
-                  <p class="mt-2 text-xl font-semibold text-white">$35</p>
-                </div>
-              </div>
-
-              <div class="rounded-2xl border border-signal/30 bg-signal/[0.06] p-5">
-                <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-                  <div>
-                    <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-signal2">Recommendation now</p>
-                    <p class="mt-2 text-xl font-semibold text-white">Do one matched inspection.</p>
-                    <p class="mt-2 text-sm leading-6 text-slate-300">The likely value is about three times the cost under the middle estimate.</p>
-                  </div>
-                  <span class="w-fit rounded-full bg-signal px-4 py-2 font-mono text-xs font-bold text-ink">APPROVE $35</span>
-                </div>
-              </div>
-
-              <div class="rounded-2xl border border-white/10 bg-black/25 p-5">
-                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">The people plan</p>
-                <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                  <p class="text-sm leading-6 text-slate-300"><span class="font-semibold text-white">Employee:</span> report the visible change and location. Do not guess the cause.</p>
-                  <p class="text-sm leading-6 text-slate-300"><span class="font-semibold text-white">Owner:</span> approve the $35 because the value clears the rule.</p>
-                  <p class="text-sm leading-6 text-slate-300"><span class="font-semibold text-white">Inspector:</span> take the matched measurements and attach the required photo.</p>
-                  <p class="text-sm leading-6 text-slate-300"><span class="font-semibold text-white">System:</span> allow move, leave, or watch based on the result - then record what happened.</p>
-                </div>
-              </div>
-
-              <div class="rounded-2xl border border-white/10 p-5">
-                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">What happened next</p>
-                <p class="mt-3 text-sm leading-7 text-slate-300">
-                  The first inspection found no meaningful difference. The chance of a serious problem dropped. A second $35 inspection would now create only about $7 to $31 of value.
-                </p>
-              </div>
-
-              <div class="flex flex-col justify-between gap-4 rounded-2xl border border-warn/25 bg-warn/[0.055] p-5 sm:flex-row sm:items-center">
-                <div>
-                  <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-warn">Recommendation after the first check</p>
-                  <p class="mt-2 text-lg font-semibold text-white">Stop paying for more tests. Keep watching.</p>
-                </div>
-                <span class="w-fit rounded-full border border-warn/40 px-4 py-2 font-mono text-xs font-bold text-warn">DO NOT SPEND $35</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="rules" class="scroll-mt-24 bg-white/[0.018] border-b border-white/5">
-      <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div class="grid gap-14 lg:grid-cols-[.78fr_1.22fr] lg:items-start">
-          <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">People and rules</p>
-            <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              People change when the rules change.
-            </h2>
-            <p class="mt-6 text-lg leading-8 text-slate-300">
-              Imagine a child gets in trouble every time they say a glass is cracked. Soon they stop telling you about cracks. Workplaces are not so different.
-            </p>
-            <p class="mt-4 text-base leading-7 text-slate-400">
-              The practical lesson is simple: do not assume people will follow a rule just because it exists. Build the process so the sensible behavior is also the easiest behavior.
+              These are rough planning numbers, not a promise. The buyer can replace every number with local facts.
             </p>
           </div>
 
           <div class="space-y-4">
-            <div class="grid gap-3 rounded-2xl border border-white/10 bg-panel/70 p-5 sm:grid-cols-2">
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">"Only bother the owner when you know it is a real problem."</p>
-              </div>
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">Report the observation in 30 seconds, without blame. Hermod decides whether a check is worth buying.</p>
-              </div>
-            </div>
-
-            <div class="grid gap-3 rounded-2xl border border-white/10 bg-panel/70 p-5 sm:grid-cols-2">
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">"Close the task fast."</p>
-              </div>
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">The task closes only when the few required facts, readings, or photos are attached.</p>
+            <div class="rounded-3xl border border-white/10 bg-panel/75 p-6 sm:p-7">
+              <div class="flex items-start gap-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-signal/25 bg-signal/[0.06] font-mono text-xs font-bold text-signal2">1</span>
+                <div>
+                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Project Qualification</p>
+                  <h3 class="mt-2 text-xl font-semibold text-white">Is this a real decision problem?</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">Yes. The same placement decision repeats, the inventory has value, and a small inspection could change what the owner does.</p>
+                </div>
               </div>
             </div>
 
-            <div class="grid gap-3 rounded-2xl border border-white/10 bg-panel/70 p-5 sm:grid-cols-2">
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">"Managers must recheck everything."</p>
-              </div>
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">Verify every high-risk case, every exception, and a small random sample of routine work.</p>
+            <div class="rounded-3xl border border-white/10 bg-panel/75 p-6 sm:p-7">
+              <div class="flex items-start gap-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-signal/25 bg-signal/[0.06] font-mono text-xs font-bold text-signal2">2</span>
+                <div>
+                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Decision Model</p>
+                  <h3 class="mt-2 text-xl font-semibold text-white">Keep it there, move it, or inspect first?</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">Moving everything may cost time and handling risk. Doing nothing may leave avoidable damage. A matched inspection could separate those choices.</p>
+                </div>
               </div>
             </div>
 
-            <div class="grid gap-3 rounded-2xl border border-white/10 bg-panel/70 p-5 sm:grid-cols-2">
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">"No exceptions."</p>
-              </div>
-              <div>
-                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">Make the exception path easy: state the reason, ask for approval, and keep the record.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+            <div class="rounded-3xl border border-signal/30 bg-gradient-to-br from-signal/[0.08] to-panel p-6 sm:p-7">
+              <div class="flex items-start gap-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-signal bg-black/25 font-mono text-xs font-bold text-signal2">3</span>
+                <div class="w-full">
+                  <p class="font-mono text-[10px] uppercase tracking-widest text-signal2">Evidence Selection</p>
+                  <h3 class="mt-2 text-xl font-semibold text-white">The first $35 inspection is worth doing.</h3>
 
-        <div class="mt-14 overflow-hidden rounded-3xl border border-signal/25 bg-gradient-to-br from-signal/[0.09] via-panel to-panel">
-          <div class="grid lg:grid-cols-[.8fr_1.2fr] lg:items-center">
-            <div class="p-7 sm:p-9 lg:border-r lg:border-white/10">
-              <p class="font-mono text-xs uppercase tracking-[0.2em] text-signal">A small audit example</p>
-              <h3 class="mt-4 text-3xl font-semibold text-white">Check enough to keep the process honest. Do not check everything by default.</h3>
-              <p class="mt-4 text-sm leading-6 text-slate-400">Illustrative numbers. The real sample grows when the stakes, error rate, or exception rate grows.</p>
-            </div>
-            <div class="grid gap-4 border-t border-white/10 p-7 sm:grid-cols-2 sm:p-9 lg:border-t-0">
-              <div class="rounded-2xl border border-white/10 bg-black/25 p-5">
-                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Recheck everything</p>
-                <p class="mt-3 text-3xl font-semibold text-white">20 x 10 min = 200 min</p>
-                <p class="mt-3 text-sm leading-6 text-slate-400">The manager repeats all 20 routine actions.</p>
+                  <div class="mt-5 grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+                      <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Inventory</p>
+                      <p class="mt-2 text-2xl font-semibold text-white">$9,600</p>
+                    </div>
+                    <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+                      <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Estimated value of check</p>
+                      <p class="mt-2 text-2xl font-semibold text-white">$105</p>
+                    </div>
+                    <div class="rounded-xl border border-good/20 bg-good/[0.055] p-4">
+                      <p class="font-mono text-[10px] uppercase tracking-widest text-good">Value / cost</p>
+                      <p class="mt-2 text-2xl font-semibold text-white">3.0x</p>
+                    </div>
+                  </div>
+
+                  <p class="mt-4 text-sm leading-6 text-slate-300">Spend $35 because the check may prevent a much larger mistake or an unnecessary move.</p>
+                </div>
               </div>
-              <div class="rounded-2xl border border-good/25 bg-good/[0.045] p-5">
-                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Risk-based verification</p>
-                <p class="mt-3 text-3xl font-semibold text-white">4 x 10 min = 40 min</p>
-                <p class="mt-3 text-sm leading-6 text-slate-300">Verify four random cases, plus every exception and high-risk case.</p>
+            </div>
+
+            <div class="rounded-3xl border border-white/10 bg-panel/75 p-6 sm:p-7">
+              <div class="flex items-start gap-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-signal/25 bg-signal/[0.06] font-mono text-xs font-bold text-signal2">4</span>
+                <div>
+                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Incentive and Authorization Policy</p>
+                  <h3 class="mt-2 text-xl font-semibold text-white">Make honest handling easier than hiding a problem.</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">The employee reports what was observed. The owner approves the $35 spend. The result needs a simple comparison and a recorded exception if the normal inspection cannot be completed.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-3xl border border-warn/25 bg-warn/[0.045] p-6 sm:p-7">
+              <div class="flex items-start gap-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-warn/35 bg-black/20 font-mono text-xs font-bold text-warn">5</span>
+                <div>
+                  <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Execution and stop record</p>
+                  <h3 class="mt-2 text-xl font-semibold text-white">The first inspection finds no meaningful difference. Do not buy the second one.</h3>
+                  <div class="mt-4 grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-xl border border-white/10 bg-black/15 p-4">
+                      <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Second check cost</p>
+                      <p class="mt-2 text-xl font-semibold text-white">$35</p>
+                    </div>
+                    <div class="rounded-xl border border-white/10 bg-black/15 p-4">
+                      <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Remaining value</p>
+                      <p class="mt-2 text-xl font-semibold text-white">$7-$31</p>
+                    </div>
+                    <div class="rounded-xl border border-warn/25 bg-warn/[0.06] p-4">
+                      <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Decision</p>
+                      <p class="mt-2 text-xl font-semibold text-white">Stop</p>
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm leading-6 text-slate-300">The case is not perfectly certain. That is okay. The remaining uncertainty is worth less than the next check.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -566,260 +533,250 @@
       </div>
     </section>
 
-    <section class="border-b border-white/5">
+    <section id="jobs" class="scroll-mt-24">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="max-w-3xl">
-          <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">The answer can change</p>
+          <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Laser-focused jobs</p>
           <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-            Yesterday's good decision may be wrong today.
+            Each person sees the part that helps them finish the job in front of them.
           </h2>
           <p class="mt-6 text-lg leading-8 text-slate-300">
-            Hermod updates the answer when the decision, the available checks, the money at risk, or the behavior risk changes.
+            Hermod can share one case without showing every person every layer. The depth follows the job, the authority, and the risk.
           </p>
-        </div>
-
-        <div class="mt-14 grid gap-4 lg:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">1 · Decision</p>
-            <h3 class="mt-3 text-lg font-semibold text-white">What are we choosing now?</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Leave it, inspect it, move it, hold it, accept it, or stop?</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">2 · Check</p>
-            <h3 class="mt-3 text-lg font-semibold text-white">What can we learn now?</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Is the right employee onsite? Is the comparison still available? Will the test settle anything?</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">3 · Stakes</p>
-            <h3 class="mt-3 text-lg font-semibold text-white">What changed in value or time?</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Did the quantity grow? Is a deadline near? Are shortcuts, errors, or exceptions becoming more common?</p>
-          </div>
-          <div class="rounded-2xl border border-signal/30 bg-signal/[0.07] p-6">
-            <p class="font-mono text-[10px] uppercase tracking-widest text-signal2">4 · Recheck the math</p>
-            <h3 class="mt-3 text-lg font-semibold text-white">Spend, wait, or stop.</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-300">The old answer is kept in the record. The new answer explains what changed.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-white/[0.018]">
-      <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div class="grid gap-14 lg:grid-cols-[.82fr_1.18fr] lg:items-start">
-          <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">What the buyer sees</p>
-            <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              A plain answer, with the reasons underneath.
-            </h2>
-            <p class="mt-6 text-base leading-7 text-slate-400">
-              Most users should not have to study a formula. They should see the recommendation, the cost, the time left, and the biggest assumption. They can open the details when they need to challenge the answer.
-            </p>
-          </div>
-
-          <div class="rounded-3xl border border-white/10 bg-panel/80 p-6 sm:p-8">
-            <div class="flex flex-col justify-between gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start">
-              <div>
-                <p class="font-mono text-xs text-slate-500">DECISION / BG-017</p>
-                <h3 class="mt-2 text-xl font-semibold text-white">Matched inspection recommended</h3>
-              </div>
-              <span class="w-fit rounded-full border border-good/30 bg-good/10 px-3 py-1 font-mono text-xs text-good">WORTH DOING</span>
-            </div>
-
-            <div class="mt-6 grid gap-3 sm:grid-cols-2">
-              <div class="rounded-xl border border-white/10 bg-white/[0.025] p-4">
-                <p class="text-xs text-slate-500">Cost</p>
-                <p class="mt-1 text-lg font-semibold text-white">$35</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.025] p-4">
-                <p class="text-xs text-slate-500">Expected value</p>
-                <p class="mt-1 text-lg font-semibold text-white">About $105</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.025] p-4">
-                <p class="text-xs text-slate-500">Time left</p>
-                <p class="mt-1 text-lg font-semibold text-white">4 hours</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.025] p-4">
-                <p class="text-xs text-slate-500">Approval</p>
-                <p class="mt-1 text-lg font-semibold text-white">Owner required</p>
-              </div>
-            </div>
-
-            <div class="mt-5 rounded-xl border border-signal/20 bg-signal/[0.045] p-4">
-              <p class="text-xs text-slate-500">Main uncertainty</p>
-              <p class="mt-2 text-sm leading-6 text-slate-200">We do not yet know whether repeated departures in location A1 have created a real product-condition difference.</p>
-            </div>
-
-
-            <div class="mt-5 grid gap-3 sm:grid-cols-2">
-              <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-                <p class="text-xs text-slate-500">Who reports</p>
-                <p class="mt-1 text-sm font-semibold text-white">Floor employee records the observation</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-                <p class="text-xs text-slate-500">Who approves</p>
-                <p class="mt-1 text-sm font-semibold text-white">Owner approves the $35 spend</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-                <p class="text-xs text-slate-500">Proof required</p>
-                <p class="mt-1 text-sm font-semibold text-white">Matched readings and one photo</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-                <p class="text-xs text-slate-500">How it is checked</p>
-                <p class="mt-1 text-sm font-semibold text-white">Every exception; routine work by sample</p>
-              </div>
-            </div>
-
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Inventory value: measured</span>
-              <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Labor cost: configured</span>
-              <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Chance of resolution: owner estimate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="fit" class="scroll-mt-24 border-y border-white/5">
-      <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div class="max-w-3xl">
-          <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Where this helps</p>
-          <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-            Best for repeat decisions where a small check can prevent a larger loss and several people affect the result.
-          </h2>
         </div>
 
         <div class="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <h3 class="text-lg font-semibold text-white">Premium inventory</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Decide whether to inspect, relocate, discount, hold, or leave valuable goods alone.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Leadership and product owners</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">Is this opportunity worth pursuing?</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">They need a clear reason to invest, investigate, wait, or stop—not every operational detail.</p>
           </div>
+
           <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <h3 class="text-lg font-semibold text-white">Production testing</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Decide whether a unit should be released, retested, reworked, or held.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Research and proposal teams</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">What is the smallest useful proof?</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">They need the next bounded test and the condition that would make the idea fail.</p>
           </div>
+
           <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <h3 class="text-lg font-semibold text-white">Controlled environments</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Decide whether a local condition is real and worth correcting before the window closes.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Operators and analysts</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">What should I do next?</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">They need the next useful action, the evidence to capture, and the deadline—not the full business case.</p>
           </div>
+
           <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <h3 class="text-lg font-semibold text-white">Incident response</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Decide which fact to check next before isolating, escalating, or interrupting operations.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Managers and decision owners</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">Why should I approve this spend or action?</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">They need the value, cost, uncertainty, available choices, and reason for approval or refusal.</p>
           </div>
+
           <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
-            <h3 class="text-lg font-semibold text-white">Expert review queues</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Reserve expensive expert attention for the cases where it can change the outcome.</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Governance and workflow owners</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">Will the rules produce honest behavior?</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">They need reporting, authority, exception, and verification rules that people can actually follow.</p>
           </div>
-          <div class="brand-card rounded-2xl border border-signal/25 bg-signal/[0.04] p-6">
-            <h3 class="text-lg font-semibold text-signal2">Project qualification</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-400">Decide whether a pilot, experiment, or technical branch is worth more time and money.</p>
+
+          <div class="brand-card rounded-2xl border border-white/10 bg-panel/[0.65] p-6">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Auditors and system architects</p>
+            <h3 class="mt-4 text-xl font-semibold text-white">Can we prove what happened and improve one layer safely?</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">They need a clean record and clear boundaries between modules—not extra burden on every user.</p>
           </div>
         </div>
 
-        <div class="mt-12 grid gap-6 lg:grid-cols-2">
-          <div class="rounded-3xl border border-good/20 bg-good/[0.045] p-7 sm:p-8">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-good">A strong fit</p>
-            <h3 class="mt-4 text-2xl font-semibold text-white">The buyer can name the repeated decision, the possible loss, a small check that could change the action, and a handoff where reporting or follow-through can fail.</h3>
-          </div>
-          <div class="rounded-3xl border border-warn/20 bg-warn/[0.045] p-7 sm:p-8">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-warn">A weak fit</p>
-            <h3 class="mt-4 text-2xl font-semibold text-white">Normal alarms and supervision already solve the problem cheaply, no available check can change the decision, or one person already has all the facts and authority.</h3>
-          </div>
+        <div class="mt-10 rounded-3xl border border-signal/20 bg-gradient-to-r from-signal/[0.07] to-transparent p-7 sm:p-9">
+          <p class="text-xl leading-8 text-white">
+            <span class="font-semibold">The design rule:</span> do not make a person solve a bigger problem than the job they were asked to complete.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="technical" class="scroll-mt-24 bg-white/[0.018]">
+    <section id="rules" class="scroll-mt-24 border-y border-white/5 bg-white/[0.018]">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div class="grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
+        <div class="grid gap-14 lg:grid-cols-[.82fr_1.18fr] lg:items-start">
           <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Under the hood</p>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">People adapt to rules</p>
             <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              The technology supports the money rule and the people rule.
+              Good rules make honest reporting and correct action easier than shortcuts.
             </h2>
             <p class="mt-6 text-base leading-7 text-slate-400">
-              In formal language, Hermod is a decision-and-incentive governance system. In plain English: decide what is worth checking, then make honest reporting and correct follow-through the easiest choices.
+              The formal idea is incentive design. The practical question is much simpler: after people learn how the system works, what behavior becomes easiest and most sensible?
             </p>
           </div>
 
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Trust the facts</p>
-              <h3 class="mt-3 font-semibold text-white">Check that observations belong to the right item, place, time, and event.</h3>
+          <div class="space-y-4">
+            <div class="grid gap-4 rounded-3xl border border-white/10 bg-panel/70 p-6 sm:grid-cols-2">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">People are blamed whenever they report uncertainty.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-500">They learn to hide problems until the evidence is impossible to ignore.</p>
+              </div>
+              <div class="rounded-2xl border border-good/20 bg-good/[0.045] p-5">
+                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">Reward early, factual reporting.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-300">A person can say “I am not sure” without being forced to guess the conclusion.</p>
+              </div>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Price the next check</p>
-              <h3 class="mt-3 font-semibold text-white">Compare the likely decision value with labor, handling, delay, and attention cost.</h3>
+
+            <div class="grid gap-4 rounded-3xl border border-white/10 bg-panel/70 p-6 sm:grid-cols-2">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">Clicking “done” is treated as proof.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-500">The system rewards fast completion, even when the useful check was skipped.</p>
+              </div>
+              <div class="rounded-2xl border border-good/20 bg-good/[0.045] p-5">
+                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">Ask for the smallest useful proof.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-300">The record shows the result that changed the decision, not merely that a task was closed.</p>
+              </div>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Ask for facts</p>
-              <h3 class="mt-3 font-semibold text-white">Let the person closest to the event report what they know without forcing them to guess the conclusion.</h3>
+
+            <div class="grid gap-4 rounded-3xl border border-white/10 bg-panel/70 p-6 sm:grid-cols-2">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">A manager repeats every check.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-500">Twenty ten-minute rechecks consume 200 minutes and teach the team that the first check is not trusted.</p>
+              </div>
+              <div class="rounded-2xl border border-good/20 bg-good/[0.045] p-5">
+                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">Sample normal work and fully inspect exceptions.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-300">Four random checks use 40 minutes. Exceptions, failures, and unusual patterns receive deeper review.</p>
+              </div>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Control authority</p>
-              <h3 class="mt-3 font-semibold text-white">Make clear who may investigate, approve spending, authorize action, or accept an exception.</h3>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Verify execution</p>
-              <h3 class="mt-3 font-semibold text-white">Require enough proof to discourage shortcuts without making managers repeat every task.</h3>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Keep the history</p>
-              <h3 class="mt-3 font-semibold text-white">Record what changed, who approved it, what was done, and whether it worked.</h3>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-panel/70 p-5 sm:col-span-2">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Important limit</p>
-              <h3 class="mt-3 font-semibold text-white">Money does not decide whether evidence is true, and it never makes an unsafe, illegal, or contractually forbidden action acceptable.</h3>
+
+            <div class="grid gap-4 rounded-3xl border border-white/10 bg-panel/70 p-6 sm:grid-cols-2">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-warn">Bad rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">No exceptions are allowed.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-500">People create hidden workarounds when the normal path does not fit reality.</p>
+              </div>
+              <div class="rounded-2xl border border-good/20 bg-good/[0.045] p-5">
+                <p class="font-mono text-[10px] uppercase tracking-widest text-good">Better rule</p>
+                <h3 class="mt-3 text-lg font-semibold text-white">Make honest exceptions easy to request and visible to approve.</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-300">The exception is not a secret bypass. It becomes part of the case and can improve the policy later.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="architecture" class="scroll-mt-24">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div class="overflow-hidden rounded-3xl border border-signal/20 bg-gradient-to-br from-signal/[0.09] via-panel to-panel p-7 sm:p-10 lg:p-14">
-          <div class="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-start">
-            <div>
-              <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">A good first pilot</p>
-              <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-                Start with one recurring "should we check?" decision and one simple handoff.
-              </h2>
-              <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-                We do not need perfect numbers or a complicated theory on day one. We begin with reasonable low, middle, and high estimates, then watch how the real people in the process respond to the rules.
-              </p>
+        <div class="grid gap-14 lg:grid-cols-[.75fr_1.25fr] lg:items-start">
+          <div>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Modular software</p>
+            <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
+              Five modules. One shared case.
+            </h2>
+            <p class="mt-6 text-base leading-7 text-slate-400">
+              Each module can improve on its own. The customer does not have to replace the system when a new layer is added. The case simply gains another focused capability.
+            </p>
+          </div>
+
+          <div class="brand-panel rounded-3xl border border-signal/25 bg-panel/75 p-6 shadow-glow sm:p-8">
+            <div class="space-y-3">
+              <div class="rounded-2xl border border-white/10 bg-white/[0.025] px-5 py-4 text-center">
+                <p class="font-semibold text-white">Project Qualification</p>
+              </div>
+              <div class="mx-auto h-5 w-px bg-signal/50"></div>
+              <div class="rounded-2xl border border-white/10 bg-white/[0.025] px-5 py-4 text-center">
+                <p class="font-semibold text-white">Decision Model</p>
+              </div>
+              <div class="mx-auto h-5 w-px bg-signal/50"></div>
+              <div class="rounded-2xl border border-signal/35 bg-signal/[0.055] px-5 py-4 text-center">
+                <p class="font-semibold text-white">Evidence Selection</p>
+              </div>
+              <div class="mx-auto h-5 w-px bg-signal/50"></div>
+              <div class="rounded-2xl border border-white/10 bg-white/[0.025] px-5 py-4 text-center">
+                <p class="font-semibold text-white">Incentive and Authorization Policy</p>
+              </div>
+              <div class="mx-auto h-5 w-px bg-signal/50"></div>
+              <div class="rounded-2xl border border-white/10 bg-white/[0.025] px-5 py-4 text-center">
+                <p class="font-semibold text-white">Execution and Compliance Record</p>
+              </div>
             </div>
 
-            <div class="space-y-3">
-              <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">What decision keeps coming back?</div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">How much could a wrong choice cost?</div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">What is the cheapest check that could change the action?</div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">Who knows which facts, and who has authority to act?</div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">What shortcut, delay, or hidden incentive could break the result?</div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">What is the smallest proof and verification rule that keeps the process trustworthy?</div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">When should the team stop investigating?</div>
+            <div class="mt-7 rounded-2xl border border-signal/25 bg-black/30 p-5 text-center">
+              <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-signal">Common case schema</p>
+              <p class="mt-3 text-sm leading-6 text-slate-300">The decision · the facts and assumptions · the people and authority · the deadline · the actions · the history</p>
             </div>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl border border-white/10 bg-panel/[0.65] p-5">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Independent change</p>
+            <h3 class="mt-3 font-semibold text-white">Improve evidence pricing without rewriting project screening.</h3>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-panel/[0.65] p-5">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Independent users</p>
+            <h3 class="mt-3 font-semibold text-white">Give operators a simple action while governance owners manage the rule.</h3>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-panel/[0.65] p-5">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Independent sale</p>
+            <h3 class="mt-3 font-semibold text-white">Sell one rung now and expand when the next problem appears.</h3>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-panel/[0.65] p-5">
+            <p class="font-mono text-[10px] uppercase tracking-widest text-signal">Shared learning</p>
+            <h3 class="mt-3 font-semibold text-white">Let outcomes improve later decisions without losing the original history.</h3>
+          </div>
+        </div>
+
+        <div class="mt-12 rounded-3xl border border-signal/20 bg-gradient-to-r from-signal/[0.08] via-panel to-panel p-7 sm:p-10">
+          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-signal">Commercial advantage</p>
+              <h3 class="mt-3 text-2xl font-semibold text-white">The software can grow without turning the customer’s work into one giant workflow.</h3>
+              <p class="mt-4 max-w-3xl text-sm leading-6 text-slate-400">That lets Hermod begin with a small, easy-to-understand purchase and build toward a broader decision-and-governance platform as the customer proves the value of each layer.</p>
+            </div>
+            <span class="rounded-full border border-signal/35 bg-signal/[0.07] px-5 py-3 font-mono text-[10px] uppercase tracking-widest text-signal2">Land small · expand by value</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="scroll-mt-24 px-6 pb-10 lg:px-8">
+    <section class="border-y border-white/5 bg-white/[0.018]">
+      <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+        <div class="grid gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-start">
+          <div>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">A good first sale</p>
+            <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
+              Start with one recurring decision and the smallest rung that solves it.
+            </h2>
+            <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              The first deployment should not prove the whole platform. It should solve one job well enough that the buyer can see the time saved, bad actions avoided, evidence spending stopped, or approval burden reduced.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">Name the one decision that keeps coming back.</div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">Choose the one group whose job will become easier.</div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">Start at the lowest useful rung.</div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">Measure a result the buyer can see.</div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-sm text-slate-200">Add another module only when a new job justifies it.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="scroll-mt-24 px-6 py-10 lg:px-8">
       <div class="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-signal/25 bg-signal px-6 py-16 text-ink sm:px-10 lg:px-16 lg:py-20">
         <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">Bring us one expensive maybe</p>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">Bring us one recurring decision</p>
             <h2 class="mt-5 max-w-4xl text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
-              Where does your team keep asking, "Is this worth checking, and can I trust how it was handled?"
+              What is the smallest Hermod tool that would make one important job easier today?
             </h2>
             <p class="mt-6 max-w-3xl text-base leading-7 text-ink/75">
-              Show us the decision, the possible loss, the cost of checking, who knows what, and where the handoff can fail. We will test the economic case first, then design the lightest rules needed to make the result trustworthy.
+              Show us the decision, who has to make it, what a mistake could cost, and where the current process creates delay, waste, hiding, or rework. We will start with the lowest useful rung.
             </p>
           </div>
 
           <a
             href="mailto:hello@hermodlabs.com"
             class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-bold text-white transition hover:bg-slate-900">
-            Show us the decision
+            Start with one job
             <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <path d="M4 10h12M11 5l5 5-5 5" />
             </svg>
@@ -833,13 +790,13 @@
     <div class="flex items-center gap-4">
       <img src="assets/hermod-wordmark-dark.png" alt="Hermod Labs" class="w-40" />
       <span class="hidden h-5 w-px bg-white/10 sm:block"></span>
-      <p class="hidden sm:block">Spend wisely. Decide clearly.</p>
+      <p class="hidden sm:block">Focused tools for difficult decisions.</p>
     </div>
-    <div class="flex gap-5">
-      <a href="#why" class="transition hover:text-white">Why it matters</a>
+    <div class="flex flex-wrap gap-5">
+      <a href="#ladder" class="transition hover:text-white">Product ladder</a>
       <a href="#example" class="transition hover:text-white">Example</a>
-      <a href="#rules" class="transition hover:text-white">People and rules</a>
-      <a href="#technical" class="transition hover:text-white">Under the hood</a>
+      <a href="#jobs" class="transition hover:text-white">Jobs and users</a>
+      <a href="#architecture" class="transition hover:text-white">Architecture</a>
     </div>
   </footer>
 </body>
