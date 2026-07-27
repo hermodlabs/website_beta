@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Hermod develops infrastructure for trustworthy distributed measurement, helping engineers determine whether observations legitimately support technical conclusions."
+    content="Hermod develops a qualification engine that turns ambiguous operational results into structured cases, trustworthy evidence, and defensible actions."
   />
-  <title>Hermod Labs — Infrastructure for Trustworthy Distributed Measurement</title>
+  <title>Hermod Labs — Qualification Engine for Defensible Decisions</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -15,21 +16,21 @@
       theme: {
         extend: {
           colors: {
-            ink: "#07111f",
-            panel: "#0b1728",
-            panel2: "#0f1e32",
-            line: "#20324a",
-            mist: "#91a4bd",
-            signal: "#63e6be",
-            signal2: "#7dd3fc",
-            warn: "#f6c177"
+            ink: "#050506",
+            panel: "#0c0b10",
+            panel2: "#15121c",
+            line: "#30283d",
+            mist: "#aaa4b4",
+            signal: "#a875f2",
+            signal2: "#d7b9ff",
+            warn: "#f4c46b"
           },
           fontFamily: {
-            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-            mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"]
+            sans: ["Avenir Next", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+            mono: ["IBM Plex Mono", "SFMono-Regular", "Consolas", "ui-monospace", "monospace"]
           },
           boxShadow: {
-            glow: "0 0 80px rgba(99, 230, 190, 0.12)"
+            glow: "0 0 90px rgba(168, 117, 242, 0.18)"
           }
         }
       }
@@ -37,30 +38,115 @@
   </script>
 
   <style>
+    :root {
+      color-scheme: dark;
+      --brand-purple: #a875f2;
+      --brand-lavender: #d7b9ff;
+      --brand-black: #050506;
+      --brand-white: #f8f7fa;
+    }
+
     body {
       background:
-        radial-gradient(circle at 15% 10%, rgba(125, 211, 252, 0.08), transparent 28rem),
-        radial-gradient(circle at 85% 5%, rgba(99, 230, 190, 0.07), transparent 30rem),
-        #07111f;
+        radial-gradient(circle at 12% 5%, rgba(168, 117, 242, 0.15), transparent 26rem),
+        radial-gradient(circle at 88% 3%, rgba(215, 185, 255, 0.09), transparent 28rem),
+        linear-gradient(180deg, #050506 0%, #09080c 48%, #050506 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 2px;
+      z-index: 80;
+      background: linear-gradient(90deg, transparent, var(--brand-purple), var(--brand-lavender), transparent);
+      pointer-events: none;
     }
 
     .grid-bg {
-      background-image:
-        linear-gradient(rgba(145, 164, 189, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(145, 164, 189, 0.055) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(to bottom, black, transparent 92%);
+      background-image: radial-gradient(circle, rgba(215, 185, 255, 0.11) 1px, transparent 1.35px);
+      background-size: 31px 31px;
+      mask-image: linear-gradient(to bottom, black, transparent 76%);
+      opacity: .46;
+    }
+
+    .hero-brand-symbol {
+      position: absolute;
+      width: min(70vw, 780px);
+      right: -18rem;
+      top: 2rem;
+      opacity: .085;
+      transform: rotate(-4deg);
+      pointer-events: none;
+      user-select: none;
+      filter: saturate(1.12);
+    }
+
+    .brand-gradient {
+      background: linear-gradient(105deg, #ffffff 12%, #d7b9ff 50%, #a875f2 92%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .brand-wordmark {
+      width: 13rem;
+      max-width: 42vw;
+      height: auto;
     }
 
     .eyebrow::before {
       content: "";
-      width: 1.5rem;
-      height: 1px;
-      background: #63e6be;
+      width: 1.75rem;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand-purple), var(--brand-lavender));
       display: inline-block;
       margin-right: 0.75rem;
       vertical-align: middle;
+      box-shadow: 0 0 18px rgba(168, 117, 242, .75);
     }
+
+    .brand-panel {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .brand-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(168,117,242,.08), transparent 42%, rgba(215,185,255,.035));
+      pointer-events: none;
+    }
+
+    .brand-wave-divider {
+      height: 7rem;
+      background-image: url("assets/hermod-symbol-dark.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: min(44rem, 82vw) auto;
+      opacity: .15;
+      mask-image: linear-gradient(90deg, transparent, black 22%, black 78%, transparent);
+    }
+
+    .brand-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 2px;
+      opacity: 0;
+      background: linear-gradient(180deg, transparent, var(--brand-purple), var(--brand-lavender), transparent);
+      transition: opacity .25s ease;
+    }
+
+    .brand-card:hover::before { opacity: 1; }
 
     .diagram-line {
       stroke-dasharray: 6 8;
@@ -71,6 +157,11 @@
       to { stroke-dashoffset: -280; }
     }
 
+    @media (max-width: 1023px) {
+      .hero-brand-symbol { right: -24rem; opacity: .055; }
+      .brand-wordmark { width: 11rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .diagram-line { animation: none; }
       html { scroll-behavior: auto; }
@@ -78,37 +169,27 @@
   </style>
 </head>
 
-<body class="text-slate-100 antialiased selection:bg-signal/30 selection:text-white">
+<body class="text-slate-100 antialiased selection:bg-signal/45 selection:text-white">
   <div class="pointer-events-none fixed inset-0 -z-10 grid-bg"></div>
 
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 border-b border-white/5 bg-ink/80 backdrop-blur-xl">
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Primary navigation">
-      <a href="#top" class="flex items-center gap-3">
-        <span class="grid h-9 w-9 place-items-center rounded-lg border border-signal/40 bg-signal/10">
-          <svg viewBox="0 0 24 24" class="h-5 w-5 text-signal" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M5 5v14M19 5v14M5 12h14" />
-            <circle cx="5" cy="5" r="2" />
-            <circle cx="19" cy="5" r="2" />
-            <circle cx="5" cy="19" r="2" />
-            <circle cx="19" cy="19" r="2" />
-            <circle cx="12" cy="12" r="2" />
-          </svg>
-        </span>
-        <span class="text-sm font-semibold tracking-[0.18em] text-white">HERMOD LABS</span>
+      <a href="#top" class="flex items-center" aria-label="Hermod Labs home">
+        <img src="assets/hermod-wordmark-dark.png" alt="Hermod Labs" class="brand-wordmark" />
       </a>
 
       <div class="hidden items-center gap-7 text-sm text-slate-300 lg:flex">
-        <a href="#platform" class="transition hover:text-white">Platform</a>
+        <a href="#platform" class="transition hover:text-white">Engine</a>
         <a href="#method" class="transition hover:text-white">Method</a>
-        <a href="#evidence" class="transition hover:text-white">Evidence</a>
-        <a href="#applications" class="transition hover:text-white">Applications</a>
+        <a href="#evidence" class="transition hover:text-white">Proof</a>
+        <a href="#applications" class="transition hover:text-white">Decisions</a>
         <a href="#research" class="transition hover:text-white">Research</a>
       </div>
 
       <a
         href="#contact"
-        class="rounded-full border border-signal/50 bg-signal/10 px-4 py-2 text-sm font-semibold text-signal transition hover:border-signal hover:bg-signal/15"
+        class="rounded-full border border-signal/60 bg-signal/10 px-4 py-2 text-sm font-semibold text-signal2 transition hover:border-signal2 hover:bg-signal/20"
       >
         Start a conversation
       </a>
@@ -118,26 +199,27 @@
   <main id="top">
     <!-- Hero -->
     <section class="relative overflow-hidden">
+      <img src="assets/hermod-symbol-dark.png" alt="" class="hero-brand-symbol" aria-hidden="true" />
       <div class="mx-auto grid min-h-[82vh] max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.08fr_.92fr] lg:px-8 lg:py-32">
         <div>
           <p class="eyebrow mb-6 font-mono text-xs uppercase tracking-[0.22em] text-signal">
-            Test and qualification infrastructure
+            Operational qualification engine
           </p>
 
           <h1 class="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-            Infrastructure for trustworthy distributed measurement.
+            Turn ambiguous results into <span class="brand-gradient">defensible decisions.</span>
           </h1>
 
           <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            Hermod develops software infrastructure that helps engineers determine whether distributed observations legitimately support a technical conclusion before those observations are trusted by downstream analysis, automation, or decision-making.
+            Hermod turns an abnormal result into a managed qualification case: the competing explanations, the evidence that would distinguish them, the tasks that produce that evidence, the actions currently permitted, and the time remaining to decide.
           </p>
 
           <div class="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
               href="#platform"
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3.5 text-sm font-bold text-ink transition hover:bg-emerald-200"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3.5 text-sm font-bold text-ink transition hover:bg-signal2"
             >
-              Explore the architecture
+              See how a case works
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <path d="M4 10h12M11 5l5 5-5 5" />
               </svg>
@@ -147,51 +229,51 @@
               href="#evidence"
               class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/[0.06]"
             >
-              See the evidence
+              Inspect the proof
             </a>
           </div>
 
           <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-6 text-xs uppercase tracking-[0.16em] text-slate-500">
-            <span>Timing</span>
-            <span>Replay</span>
-            <span>Fault injection</span>
-            <span>Qualification</span>
-            <span>Decision trace</span>
+            <span>Competing explanations</span>
+            <span>Evidence tasks</span>
+            <span>Provenance</span>
+            <span>Deadlines</span>
+            <span>Action rules</span>
           </div>
         </div>
 
         <!-- Hero qualification console -->
         <div class="relative">
           <div class="absolute -inset-8 -z-10 rounded-full bg-signal/10 blur-3xl"></div>
-          <div class="overflow-hidden rounded-3xl border border-white/10 bg-panel/90 shadow-2xl shadow-black/30">
+          <div class="brand-panel overflow-hidden rounded-3xl border border-signal/25 bg-panel/90 shadow-2xl shadow-black/40">
             <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
               <div class="flex gap-2" aria-hidden="true">
                 <span class="h-2.5 w-2.5 rounded-full bg-rose-400/60"></span>
                 <span class="h-2.5 w-2.5 rounded-full bg-warn/60"></span>
                 <span class="h-2.5 w-2.5 rounded-full bg-signal/60"></span>
               </div>
-              <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">Qualification trace</span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">Managed qualification case</span>
             </div>
 
             <div class="space-y-5 p-6 sm:p-8">
-              <div class="flex items-center justify-between">
+              <div class="flex items-start justify-between gap-4">
                 <div>
-                  <p class="font-mono text-xs text-slate-500">CLAIM / Q-1042</p>
-                  <p class="mt-1 font-medium text-white">Observed deviation is physically meaningful</p>
+                  <p class="font-mono text-xs text-slate-500">CASE / UNIT-027</p>
+                  <p class="mt-1 font-medium text-white">Unit failed RF performance requirements</p>
                 </div>
-                <span class="rounded-full border border-warn/30 bg-warn/10 px-3 py-1 font-mono text-xs text-warn">UNDER REVIEW</span>
+                <span class="shrink-0 rounded-full border border-warn/30 bg-warn/10 px-3 py-1 font-mono text-xs text-warn">UNRESOLVED</span>
               </div>
 
               <div class="grid gap-3 sm:grid-cols-2">
                 <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Observation A</p>
-                  <p class="mt-2 text-sm text-slate-200">RF telemetry</p>
-                  <p class="mt-1 font-mono text-xs text-slate-500">t = 12.000 ms</p>
+                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Reported result</p>
+                  <p class="mt-2 text-sm text-slate-200">3.1 dB below reference</p>
+                  <p class="mt-1 font-mono text-xs text-slate-500">Limit: 3.5 dB</p>
                 </div>
                 <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Observation B</p>
-                  <p class="mt-2 text-sm text-slate-200">Reference sensor</p>
-                  <p class="mt-1 font-mono text-xs text-slate-500">t = 12.800 ms</p>
+                  <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Decision needed</p>
+                  <p class="mt-2 text-sm text-slate-200">Release, retest, rework, or hold</p>
+                  <p class="mt-1 font-mono text-xs text-slate-500">Authorized: validation lead</p>
                 </div>
               </div>
 
@@ -201,17 +283,7 @@
                     <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>
                   </span>
                   <div class="flex-1">
-                    <p class="text-sm text-slate-200">Topology identified</p>
-                  </div>
-                  <span class="font-mono text-[10px] text-slate-500">PASS</span>
-                </div>
-
-                <div class="flex items-center gap-3 rounded-xl border border-white/10 px-4 py-3">
-                  <span class="grid h-6 w-6 place-items-center rounded-full bg-signal/10 text-signal">
-                    <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>
-                  </span>
-                  <div class="flex-1">
-                    <p class="text-sm text-slate-200">Timing epochs reconstructable</p>
+                    <p class="text-sm text-slate-200">Unit and configuration identity verified</p>
                   </div>
                   <span class="font-mono text-[10px] text-slate-500">PASS</span>
                 </div>
@@ -221,21 +293,32 @@
                     <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v5M10 14h.01"/></svg>
                   </span>
                   <div class="flex-1">
-                    <p class="text-sm text-slate-200">Propagation model incomplete</p>
+                    <p class="text-sm text-slate-200">Same-event correspondence not established</p>
+                    <p class="mt-0.5 text-xs text-slate-500">Next task: inspect trigger and buffer record</p>
                   </div>
-                  <span class="font-mono text-[10px] text-warn">ADJUST</span>
+                  <span class="font-mono text-[10px] text-warn">OPEN</span>
+                </div>
+
+                <div class="flex items-center gap-3 rounded-xl border border-white/10 px-4 py-3">
+                  <span class="grid h-6 w-6 place-items-center rounded-full bg-signal2/10 text-signal2">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 4v6l4 2"/><circle cx="10" cy="10" r="7"/></svg>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm text-slate-200">Decision deadline</p>
+                  </div>
+                  <span class="font-mono text-[10px] text-signal2">47 MIN</span>
                 </div>
               </div>
 
               <div class="grid grid-cols-3 gap-3 border-t border-white/10 pt-5">
-                <div class="rounded-xl border border-white/10 p-3 text-center opacity-50">
-                  <p class="font-mono text-[10px] text-slate-500">ALLOW</p>
-                </div>
                 <div class="rounded-xl border border-signal/40 bg-signal/10 p-3 text-center">
-                  <p class="font-mono text-[10px] font-semibold text-signal">ADJUST</p>
+                  <p class="font-mono text-[10px] font-semibold text-signal">INVESTIGATE</p>
                 </div>
                 <div class="rounded-xl border border-white/10 p-3 text-center opacity-50">
-                  <p class="font-mono text-[10px] text-slate-500">BLOCK</p>
+                  <p class="font-mono text-[10px] text-slate-500">RELEASE</p>
+                </div>
+                <div class="rounded-xl border border-warn/30 bg-warn/10 p-3 text-center">
+                  <p class="font-mono text-[10px] font-semibold text-warn">HOLD</p>
                 </div>
               </div>
             </div>
@@ -243,35 +326,35 @@
         </div>
       </div>
     </section>
+    <div class="brand-wave-divider" aria-hidden="true"></div>
 
     <!-- Problem -->
-    <section class="border-y border-white/5 bg-white/[0.018]">
+    <section class="border-y border-white/5 bg-white/[0.022]">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
           <div>
             <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">The problem</p>
             <p class="mt-5 max-w-sm text-sm leading-6 text-slate-500">
-              More observations do not automatically produce more trustworthy conclusions.
+              An abnormal result is visible before its cause is diagnosable.
             </p>
           </div>
 
           <div>
             <h2 class="max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.025em] text-white sm:text-5xl">
-              Modern systems collect more data than they can confidently trust.
+              A result does not tell an engineer what happened or what to do next.
             </h2>
 
             <div class="mt-8 grid gap-7 text-base leading-8 text-slate-300 sm:grid-cols-2">
               <p>
-                Distributed sensors, simulations, telemetry, and AI systems increasingly make decisions from observations collected across different locations, devices, and points in time.
+                The same apparent failure may come from the unit, the reference, the test configuration, stale data, timing error, measurement uncertainty, or an integration problem several handoffs away.
               </p>
               <p>
-                Before those observations are combined, compared, or used as evidence, someone must answer a more fundamental question:
-                <strong class="font-medium text-white">Can these observations legitimately be compared?</strong>
+                These explanations matter because they lead to different actions. Before releasing, retesting, reworking, escalating, or intervening, the organization must determine which explanation the available evidence actually supports.
               </p>
             </div>
 
             <div class="mt-10 rounded-2xl border border-signal/20 bg-signal/[0.045] px-6 py-5 text-lg text-slate-200">
-              Hermod exists to help answer that question.
+              Hermod turns the ambiguous result into a structured case that can be investigated, qualified, and acted on.
             </div>
           </div>
         </div>
@@ -284,41 +367,41 @@
         <div class="max-w-3xl">
           <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">What we build</p>
           <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-            Shared test and qualification infrastructure.
+            A qualification engine for operational decisions.
           </h2>
           <p class="mt-6 text-lg leading-8 text-slate-300">
-            Rather than solving one industry's workflow, Hermod develops reusable qualification capabilities that multiple domains require. Each domain supplies its own scientific models and acceptance criteria. The infrastructure remains reusable.
+            Hermod manages the complete path from an ambiguous claim to a defensible action. Domain experts provide the local models, explanations, evidence rules, and authority structure. The engine organizes the case, advances the evidence, evaluates qualification state, and enforces action conditions.
           </p>
         </div>
 
-        <div class="mt-16 overflow-hidden rounded-3xl border border-white/10 bg-panel/70 p-5 shadow-glow sm:p-8 lg:p-10">
+        <div class="mt-16 brand-panel overflow-hidden rounded-3xl border border-signal/20 bg-panel/70 p-5 shadow-glow sm:p-8 lg:p-10">
           <div class="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
             <div>
-              <p class="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">Domain applications</p>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">Domain cases</p>
               <div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2">
                 <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-medium text-white">Drone</p>
-                  <p class="mt-1 text-xs text-slate-500">Test and validation</p>
+                  <p class="font-medium text-white">Production Test</p>
+                  <p class="mt-1 text-xs text-slate-500">Release, retest, rework, or hold</p>
                 </div>
                 <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-medium text-white">Grow</p>
-                  <p class="mt-1 text-xs text-slate-500">Environmental qualification</p>
+                  <p class="font-medium text-white">Controlled Grow</p>
+                  <p class="mt-1 text-xs text-slate-500">Inspect, correct, or abstain</p>
                 </div>
                 <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-medium text-white">VLA</p>
-                  <p class="mt-1 text-xs text-slate-500">Distributed arrays</p>
+                  <p class="font-medium text-white">Distributed Arrays</p>
+                  <p class="mt-1 text-xs text-slate-500">Qualify, track, or reject anomaly</p>
                 </div>
                 <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-medium text-white">Robotics</p>
-                  <p class="mt-1 text-xs text-slate-500">Sensor and control testing</p>
+                  <p class="font-medium text-white">Incident Response</p>
+                  <p class="mt-1 text-xs text-slate-500">Preserve, isolate, or escalate</p>
                 </div>
                 <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-                  <p class="font-medium text-white">RC Systems</p>
-                  <p class="mt-1 text-xs text-slate-500">Hardware-in-the-loop</p>
+                  <p class="font-medium text-white">Hardware-in-the-Loop</p>
+                  <p class="mt-1 text-xs text-slate-500">Accept, rerun, or invalidate test</p>
                 </div>
                 <div class="rounded-2xl border border-dashed border-signal/25 bg-signal/[0.03] p-4">
-                  <p class="font-medium text-signal">New domains</p>
-                  <p class="mt-1 text-xs text-slate-500">Extend through local models</p>
+                  <p class="font-medium text-signal">New Domains</p>
+                  <p class="mt-1 text-xs text-slate-500">Extend through local case models</p>
                 </div>
               </div>
             </div>
@@ -328,24 +411,26 @@
               <div class="rounded-3xl border border-signal/30 bg-gradient-to-br from-signal/[0.09] to-signal2/[0.035] p-6 sm:p-8">
                 <div class="flex items-center justify-between gap-4">
                   <div>
-                    <p class="font-mono text-xs uppercase tracking-[0.2em] text-signal">Shared core</p>
-                    <h3 class="mt-2 text-2xl font-semibold text-white">Qualification Infrastructure</h3>
+                    <p class="font-mono text-xs uppercase tracking-[0.2em] text-signal">Shared product</p>
+                    <h3 class="mt-2 text-2xl font-semibold text-white">Qualification Engine</h3>
                   </div>
                   <span class="hidden rounded-full border border-signal/30 px-3 py-1 font-mono text-[10px] text-signal sm:inline-flex">REUSABLE</span>
                 </div>
 
                 <div class="mt-7 grid gap-3 sm:grid-cols-2">
-                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Topology</div>
-                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Timing</div>
-                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Replay</div>
-                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Fault Injection</div>
-                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Evidence</div>
-                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Qualification</div>
-                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200 sm:col-span-2">Inspectable Decision Trace</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Claim and decision</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Competing explanations</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Evidence-producing tasks</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Identity and provenance</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Qualification rules</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Decision deadlines</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Investigation vs. treatment</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200">Action authorization</div>
+                  <div class="rounded-xl border border-white/10 bg-ink/35 px-4 py-3 text-sm text-slate-200 sm:col-span-2">Inspectable decision record</div>
                 </div>
 
                 <div class="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-ink/40 px-4 py-3">
-                  <span class="font-mono text-xs text-slate-500">OUTPUT</span>
+                  <span class="font-mono text-xs text-slate-500">ACTION STATE</span>
                   <div class="flex gap-2 font-mono text-[10px]">
                     <span class="rounded-full bg-signal/10 px-2 py-1 text-signal">ALLOW</span>
                     <span class="rounded-full bg-warn/10 px-2 py-1 text-warn">ADJUST</span>
@@ -360,54 +445,54 @@
     </section>
 
     <!-- Method -->
-    <section id="method" class="scroll-mt-24 border-y border-white/5 bg-white/[0.018]">
+    <section id="method" class="scroll-mt-24 border-y border-white/5 bg-white/[0.022]">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="grid gap-14 lg:grid-cols-[1fr_.9fr] lg:items-center">
           <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">How we derived the architecture</p>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">How we choose the work</p>
             <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              We worked backward from the jobs engineers need to accomplish.
+              We begin with the decision, not the technology.
             </h2>
 
             <div class="mt-7 space-y-5 text-base leading-8 text-slate-300">
               <p>
-                We did not begin by assuming these domains belong together because they use sensors or distributed systems.
+                Before selecting tomography, machine learning, sheaf theory, a sensor network, or any other advanced technique, we identify what must be found, why it is hard to observe directly, and who must act on the answer.
               </p>
               <p>
-                We analyzed the jobs test and validation personnel perform, then identified the capabilities repeatedly required across those jobs. Those shared capabilities define the platform.
+                We then state the credible alternative explanations, determine what evidence would distinguish them, and choose the simplest capability that can support the required decision.
               </p>
               <p class="font-medium text-white">
-                The result is an architecture derived from operational evidence rather than category assumptions.
+                We identify the Joker before deciding whether mapping Gotham is necessary.
               </p>
             </div>
 
-            <a href="#" class="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-emerald-200">
-              Read the architecture decision
+            <a href="#research" class="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-signal2">
+              See where research fits
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <path d="M4 10h12M11 5l5 5-5 5" />
               </svg>
             </a>
           </div>
 
-          <div class="rounded-3xl border border-white/10 bg-panel p-6 sm:p-8">
+          <div class="brand-panel rounded-3xl border border-signal/20 bg-panel p-6 sm:p-8">
             <div class="space-y-3">
               <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
-                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">01 / Observe the work</p>
-                <p class="mt-2 text-sm leading-6 text-slate-200">What conclusion must the engineer reach, and what evidence must support it?</p>
+                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">01 / Define the decision</p>
+                <p class="mt-2 text-sm leading-6 text-slate-200">What must be found or qualified, who must act, and which actions are at stake?</p>
               </div>
 
               <div class="mx-auto h-6 w-px bg-signal/30"></div>
 
               <div class="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
-                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">02 / Map the use cases</p>
-                <p class="mt-2 text-sm leading-6 text-slate-200">Which tasks are domain-specific, and which repeatedly appear across domains?</p>
+                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">02 / State the ambiguity</p>
+                <p class="mt-2 text-sm leading-6 text-slate-200">What else could produce the same apparent result, and what evidence would make those explanations diverge?</p>
               </div>
 
               <div class="mx-auto h-6 w-px bg-signal/30"></div>
 
               <div class="rounded-2xl border border-signal/30 bg-signal/[0.05] p-5">
-                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-signal">03 / Extract the shared core</p>
-                <p class="mt-2 text-sm leading-6 text-white">Topology, timing, replay, fault injection, evidence qualification, and decision traceability.</p>
+                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-signal">03 / Manage the qualification case</p>
+                <p class="mt-2 text-sm leading-6 text-white">Assign evidence tasks, preserve diagnostic value, update qualification state, and allow, adjust, or block action.</p>
               </div>
             </div>
           </div>
@@ -420,136 +505,135 @@
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <div class="max-w-3xl">
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Evidence</p>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Product proof</p>
             <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              Every architectural claim should be inspectable.
+              Evidence should change the case, not merely decorate the output.
             </h2>
           </div>
           <p class="max-w-md text-base leading-7 text-slate-400">
-            Infrastructure companies do not sell screenshots. They earn trust through code, experiments, reproducible tests, technical decisions, and visible failure analysis.
+            We demonstrate the engine through concrete cases, plausible counterexamples, reproducible evidence tasks, explicit decision rules, and visible reasons to proceed, abstain, or block action.
           </p>
         </div>
 
         <div class="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Card -->
-          <a href="#" class="group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
-            <div class="flex items-start justify-between">
-              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 15 12 3l8 12-8 6-8-6Z"/><path d="M12 3v18"/></svg>
-              </span>
-              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
-            </div>
-            <h3 class="mt-7 text-lg font-semibold text-white">Drone Qualification</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-400">Telemetry, RF, simulation, and hardware-in-the-loop evidence.</p>
-            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Tests · Video · Code</p>
-          </a>
-
-          <a href="#" class="group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
-            <div class="flex items-start justify-between">
-              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21V9M12 13c-4 0-7-2-7-6 4 0 7 2 7 6ZM12 17c4 0 7-2 7-6-4 0-7 2-7 6Z"/></svg>
-              </span>
-              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
-            </div>
-            <h3 class="mt-7 text-lg font-semibold text-white">Grow Qualification</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-400">Spatial environmental evidence, sensor trust, and local actionability.</p>
-            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Reference design · Data · Tests</p>
-          </a>
-
-          <a href="#" class="group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
-            <div class="flex items-start justify-between">
-              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="7" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="m7 8 3.5 3M17 8l-3.5 3M7 16l3.5-3M17 16l-3.5-3"/></svg>
-              </span>
-              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
-            </div>
-            <h3 class="mt-7 text-lg font-semibold text-white">VLA Research</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-400">Qualification of geographically distributed observations and infrastructure behavior.</p>
-            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Models · Papers · Decisions</p>
-          </a>
-
-          <a href="#" class="group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
-            <div class="flex items-start justify-between">
-              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><circle cx="12" cy="12" r="3"/></svg>
-              </span>
-              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
-            </div>
-            <h3 class="mt-7 text-lg font-semibold text-white">Fault Injection</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-400">Deliberate timing, transport, buffering, and sensor failures.</p>
-            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Scenarios · Harnesses · Results</p>
-          </a>
-
-          <a href="#" class="group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
-            <div class="flex items-start justify-between">
-              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 9"/><path d="M4 4v5h5"/></svg>
-              </span>
-              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
-            </div>
-            <h3 class="mt-7 text-lg font-semibold text-white">Replay</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-400">Reproducible reconstruction of events, conditions, and decision paths.</p>
-            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Datasets · Traces · Comparisons</p>
-          </a>
-
-          <a href="#" class="group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
+          <a href="#" class="brand-card group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
             <div class="flex items-start justify-between">
               <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"/><path d="M9 11h6M9 15h6M9 7h3"/></svg>
               </span>
               <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
             </div>
+            <h3 class="mt-7 text-lg font-semibold text-white">Guided Qualification Cases</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Complete examples from alert or failed result through evidence collection, authorization, execution, and outcome.</p>
+            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Cases · Traces · Outcomes</p>
+          </a>
+
+          <a href="#" class="brand-card group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
+            <div class="flex items-start justify-between">
+              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5h14v14H5z"/><path d="m8 12 2.5 2.5L16 9"/></svg>
+              </span>
+              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+            </div>
+            <h3 class="mt-7 text-lg font-semibold text-white">Evidence-Producing Workflows</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Operator tasks tied to the evidence produced, the uncertainty reduced, and the next permissible actions.</p>
+            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Tasks · Forms · State changes</p>
+          </a>
+
+          <a href="#" class="brand-card group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
+            <div class="flex items-start justify-between">
+              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+            </div>
+            <h3 class="mt-7 text-lg font-semibold text-white">Decision Rules and Deadlines</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Explicit qualification thresholds, action conditions, expiration behavior, and authorized roles.</p>
+            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Rules · Windows · Authority</p>
+          </a>
+
+          <a href="#" class="brand-card group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
+            <div class="flex items-start justify-between">
+              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 15 12 3l8 12-8 6-8-6Z"/><path d="M12 3v18"/></svg>
+              </span>
+              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+            </div>
+            <h3 class="mt-7 text-lg font-semibold text-white">Counterexample and Fault Tests</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Cases designed to let credible wrong explanations win when the preferred interpretation is not justified.</p>
+            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Controls · Faults · Blocked claims</p>
+          </a>
+
+          <a href="#" class="brand-card group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
+            <div class="flex items-start justify-between">
+              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 9"/><path d="M4 4v5h5"/></svg>
+              </span>
+              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+            </div>
+            <h3 class="mt-7 text-lg font-semibold text-white">Replay and Provenance</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Reconstruct what was observed, which event produced it, what changed, and how the decision evolved.</p>
+            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">Identity · Timing · History</p>
+          </a>
+
+          <a href="#" class="brand-card group rounded-2xl border border-white/10 bg-panel/65 p-6 transition hover:-translate-y-1 hover:border-signal/35 hover:bg-panel2">
+            <div class="flex items-start justify-between">
+              <span class="grid h-10 w-10 place-items-center rounded-xl border border-signal/20 bg-signal/[0.06] text-signal">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              </span>
+              <svg class="h-4 w-4 text-slate-600 transition group-hover:translate-x-1 group-hover:text-signal" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+            </div>
             <h3 class="mt-7 text-lg font-semibold text-white">Architecture Decisions</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-400">The reasoning, tradeoffs, rejected alternatives, and evidence behind the platform.</p>
-            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">ADRs · Diagrams · GitHub</p>
+            <p class="mt-2 text-sm leading-6 text-slate-400">The assumptions, rejected alternatives, strategic fit, and evidence behind what we build or prune.</p>
+            <p class="mt-5 font-mono text-[10px] uppercase tracking-widest text-slate-600">ADRs · Experiments · Pruning</p>
           </a>
         </div>
       </div>
     </section>
 
     <!-- Applications -->
-    <section id="applications" class="scroll-mt-24 border-y border-white/5 bg-white/[0.018]">
+    <section id="applications" class="scroll-mt-24 border-y border-white/5 bg-white/[0.022]">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="max-w-3xl">
-          <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Applications</p>
+          <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Operational decisions</p>
           <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-            Different domains. The same qualification problem.
+            Different domains. The same qualification structure.
           </h2>
           <p class="mt-6 text-lg leading-8 text-slate-300">
-            Applications demonstrate how the shared infrastructure behaves under different physical models, operating conditions, and acceptance criteria.
+            The object being qualified, the evidence, and the authorized action change by domain. The underlying job remains the same: distinguish explanations well enough for an authorized person to act without pretending uncertainty has disappeared.
           </p>
         </div>
 
         <div class="mt-14 divide-y divide-white/10 border-y border-white/10">
           <div class="grid gap-3 py-6 md:grid-cols-[1fr_1fr_auto] md:items-center">
-            <h3 class="text-lg font-semibold text-white">Drone Test & Validation</h3>
-            <p class="text-sm leading-6 text-slate-400">Qualify telemetry, RF measurements, simulation results, and HIL observations.</p>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Shared core</span>
+            <h3 class="text-lg font-semibold text-white">Production Unit Disposition</h3>
+            <p class="text-sm leading-6 text-slate-400">Determine whether a specific unit should be released, retested, reworked, escalated, or held.</p>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Release · Retest · Hold</span>
           </div>
           <div class="grid gap-3 py-6 md:grid-cols-[1fr_1fr_auto] md:items-center">
-            <h3 class="text-lg font-semibold text-white">Environmental Monitoring</h3>
-            <p class="text-sm leading-6 text-slate-400">Distinguish local environmental differences from noise, gaps, and timing artifacts.</p>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Shared core</span>
+            <h3 class="text-lg font-semibold text-white">Controlled-Environment Intervention</h3>
+            <p class="text-sm leading-6 text-slate-400">Distinguish an actionable local condition from sensor error, normal variation, or an unsafe intervention window.</p>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Inspect · Correct · Block</span>
           </div>
           <div class="grid gap-3 py-6 md:grid-cols-[1fr_1fr_auto] md:items-center">
-            <h3 class="text-lg font-semibold text-white">Distributed Arrays</h3>
-            <p class="text-sm leading-6 text-slate-400">Determine whether geographically separated observations may be combined coherently.</p>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Shared core</span>
+            <h3 class="text-lg font-semibold text-white">Distributed Anomaly Qualification</h3>
+            <p class="text-sm leading-6 text-slate-400">Determine whether an apparent anomaly comes from an unknown source, infrastructure behavior, environment, or measurement artifact.</p>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Qualify · Track · Reject</span>
           </div>
           <div class="grid gap-3 py-6 md:grid-cols-[1fr_1fr_auto] md:items-center">
-            <h3 class="text-lg font-semibold text-white">Digital Twins</h3>
-            <p class="text-sm leading-6 text-slate-400">Qualify comparisons between modeled state, observed state, and operational context.</p>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Shared core</span>
+            <h3 class="text-lg font-semibold text-white">Integration Incident Triage</h3>
+            <p class="text-sm leading-6 text-slate-400">Preserve evidence across handoffs and distinguish component failure from test-system, interface, or configuration failure.</p>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Preserve · Isolate · Escalate</span>
           </div>
           <div class="grid gap-3 py-6 md:grid-cols-[1fr_1fr_auto] md:items-center">
-            <h3 class="text-lg font-semibold text-white">Hardware-in-the-Loop</h3>
-            <p class="text-sm leading-6 text-slate-400">Reconstruct timing and provenance across real and simulated components.</p>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Shared core</span>
+            <h3 class="text-lg font-semibold text-white">Hardware-in-the-Loop Validity</h3>
+            <p class="text-sm leading-6 text-slate-400">Determine whether real and simulated observations belong to a valid test event and support the intended conclusion.</p>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Accept · Rerun · Invalidate</span>
           </div>
           <div class="grid gap-3 py-6 md:grid-cols-[1fr_1fr_auto] md:items-center">
-            <h3 class="text-lg font-semibold text-white">Robotics</h3>
-            <p class="text-sm leading-6 text-slate-400">Test whether sensor and control observations support a safe operational conclusion.</p>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Shared core</span>
+            <h3 class="text-lg font-semibold text-white">Research and Project Qualification</h3>
+            <p class="text-sm leading-6 text-slate-400">Dogfood the engine to decide whether an experiment, SBIR, or technical branch should be pursued, revised, held, or pruned.</p>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-signal">Pursue · Revise · Prune</span>
           </div>
         </div>
       </div>
@@ -561,22 +645,22 @@
         <div class="overflow-hidden rounded-3xl border border-signal/20 bg-gradient-to-br from-signal/[0.08] via-panel to-panel p-7 sm:p-10 lg:p-14">
           <div class="grid gap-12 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
             <div>
-              <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Open ecosystem</p>
+              <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Open evidence ecosystem</p>
               <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-                Infrastructure improves through inspection, reproduction, and extension.
+                Open reference cases make the qualification engine easier to inspect, adopt, and improve.
               </h2>
               <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-                Hermod maintains open reference designs, reusable test scenarios, architecture documentation, and qualification examples that allow others to inspect, reproduce, and extend our work.
+                Hermod publishes selected reference designs, experimental protocols, case schemas, test scenarios, and decision traces so practitioners can reproduce the ambiguity and evaluate whether the workflow actually resolves it.
               </p>
               <p class="mt-4 max-w-3xl text-base leading-7 text-slate-400">
-                We believe trustworthy infrastructure improves through public evidence and technical feedback.
+                The open work supplies credible cases and feedback. The qualification engine turns those cases into a reusable operational product.
               </p>
             </div>
 
             <div class="grid grid-cols-2 gap-3">
               <a href="#" class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-center text-sm font-semibold text-white transition hover:border-signal/35 hover:bg-signal/[0.06]">GitHub</a>
-              <a href="#" class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-center text-sm font-semibold text-white transition hover:border-signal/35 hover:bg-signal/[0.06]">Documentation</a>
-              <a href="#" class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-center text-sm font-semibold text-white transition hover:border-signal/35 hover:bg-signal/[0.06]">Examples</a>
+              <a href="#" class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-center text-sm font-semibold text-white transition hover:border-signal/35 hover:bg-signal/[0.06]">Case Library</a>
+              <a href="#" class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-center text-sm font-semibold text-white transition hover:border-signal/35 hover:bg-signal/[0.06]">Protocols</a>
               <a href="#" class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 text-center text-sm font-semibold text-white transition hover:border-signal/35 hover:bg-signal/[0.06]">Reference Designs</a>
             </div>
           </div>
@@ -585,39 +669,39 @@
     </section>
 
     <!-- Research -->
-    <section id="research" class="scroll-mt-24 border-y border-white/5 bg-white/[0.018]">
+    <section id="research" class="scroll-mt-24 border-y border-white/5 bg-white/[0.022]">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
           <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Current research</p>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Research inside the product</p>
             <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              The technical questions behind trustworthy measurement.
+              Research strengthens the difficult parts of qualification.
             </h2>
             <p class="mt-6 text-base leading-7 text-slate-400">
-              Our research explores the mathematical, architectural, and operational conditions under which distributed observations may be used as evidence.
+              Mathematical and computational research is not a separate product. It improves the engine's ability to determine whether observations belong to the same event, may be compared under a defensible model, and can be combined into a consistent account.
             </p>
           </div>
 
           <div class="grid gap-4 sm:grid-cols-2">
             <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
               <p class="font-mono text-[10px] uppercase tracking-widest text-signal">01</p>
-              <h3 class="mt-3 font-semibold text-white">Qualification Infrastructure</h3>
+              <h3 class="mt-3 font-semibold text-white">Event Identity and Correspondence</h3>
             </div>
             <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
               <p class="font-mono text-[10px] uppercase tracking-widest text-signal">02</p>
-              <h3 class="mt-3 font-semibold text-white">Distributed Measurement</h3>
+              <h3 class="mt-3 font-semibold text-white">Timing and Delay Reconstruction</h3>
             </div>
             <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
               <p class="font-mono text-[10px] uppercase tracking-widest text-signal">03</p>
-              <h3 class="mt-3 font-semibold text-white">Delay Reconstruction</h3>
+              <h3 class="mt-3 font-semibold text-white">Provenance and Transformation History</h3>
             </div>
             <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
               <p class="font-mono text-[10px] uppercase tracking-widest text-signal">04</p>
-              <h3 class="mt-3 font-semibold text-white">Evidence Qualification</h3>
+              <h3 class="mt-3 font-semibold text-white">Local-to-Global Consistency</h3>
             </div>
             <div class="rounded-2xl border border-white/10 bg-panel/70 p-5">
               <p class="font-mono text-[10px] uppercase tracking-widest text-signal">05</p>
-              <h3 class="mt-3 font-semibold text-white">Decision Traceability</h3>
+              <h3 class="mt-3 font-semibold text-white">Uncertainty, Missing Data, and Abstention</h3>
             </div>
             <div class="rounded-2xl border border-dashed border-signal/25 bg-signal/[0.035] p-5">
               <p class="font-mono text-[10px] uppercase tracking-widest text-signal">PUBLICATIONS</p>
@@ -637,12 +721,12 @@
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div>
-            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Follow the architecture</p>
+            <p class="eyebrow font-mono text-xs uppercase tracking-[0.22em] text-signal">Show the work</p>
             <h2 class="mt-6 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              Engineering transparency, published as the platform evolves.
+              We publish what changed the decision, including what failed and what we pruned.
             </h2>
             <p class="mt-6 text-lg leading-8 text-slate-300">
-              Every month we publish what we tested, what failed, what changed, and why.
+              Follow the cases, experiments, counterexamples, architecture decisions, and research that shape the qualification engine as it evolves.
             </p>
           </div>
 
@@ -659,15 +743,15 @@
 
     <!-- Final CTA -->
     <section id="contact" class="scroll-mt-24 px-6 pb-10 lg:px-8">
-      <div class="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-signal/25 bg-signal px-6 py-16 text-ink sm:px-10 lg:px-16 lg:py-20">
+      <div class="brand-panel mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-signal/40 bg-gradient-to-br from-signal via-[#b985ff] to-signal2 px-6 py-16 text-ink sm:px-10 lg:px-16 lg:py-20">
         <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">Help shape the architecture</p>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">Bring us the ambiguity</p>
             <h2 class="mt-5 max-w-4xl text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
-              How does your team determine whether observations legitimately support a technical conclusion?
+              Where does an unresolved result delay your team from making a defensible decision?
             </h2>
             <p class="mt-6 max-w-3xl text-base leading-7 text-ink/75">
-              Hermod is built through public evidence and technical feedback. We want to hear from people working in testing, validation, robotics, distributed systems, sensing, and autonomous systems.
+              We want to understand the claim, the credible alternative explanations, the evidence your team currently lacks, the actions at stake, and what a qualified answer would be worth.
             </p>
           </div>
 
@@ -683,10 +767,14 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <footer class="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-    <p>© 2026 Hermod Labs. Infrastructure for trustworthy distributed measurement.</p>
+    </main>
+
+  <footer class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+    <div class="flex flex-col gap-3">
+      <img src="assets/hermod-wordmark-dark.png" alt="Hermod Labs" class="w-44" />
+      <p>© 2026 Hermod Labs. Qualification infrastructure for defensible operational decisions.</p>
+    </div>
     <div class="flex gap-5">
       <a href="#" class="transition hover:text-white">GitHub</a>
       <a href="#" class="transition hover:text-white">LinkedIn</a>
